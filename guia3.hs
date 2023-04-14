@@ -86,7 +86,6 @@ sumaDistintos x y z
 -- h)
 esMultiploDe :: Integer -> Integer -> Bool
 esMultiploDe x y
- | x < y = False
  | mod x y == 0 = True
  | otherwise = False
 
