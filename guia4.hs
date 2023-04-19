@@ -12,12 +12,17 @@ fibonacciPM 1 = 1
 fibonacciPM n = fibonacciPM (n - 1) + fibonacciPM (n - 2)
 
 -- Ejercicio 2
--- parteEntera :: Float -> Integer
--- parteEntera x = floor x
+parteEntera :: Float -> Integer
+parteEntera x
+ | x < 1 = 0
+ | otherwise = 1 + parteEntera (x - 1)
 
 -- Ejercico 3
--- esDivisible :: Integer -> Integer -> Bool
--- esDivisible x y 
+esDivisible :: Integer -> Integer -> Bool
+esDivisible x y
+ | (x - y) == 0 = True
+ | (x - y) < 0 = False
+ | otherwise = esDivisible (x - y) y
 
 -- Ejercicio 4
 sumaImpares :: Integer -> Integer
@@ -76,12 +81,17 @@ f3 n q = q ^ (2 * n) + q ^ ((2 * n) - 1) + f3 (n - 1) q
 
 -- d)
 f4 :: Integer -> Float -> Float
+-- f4 calcula la sumatoria de q^i de n a 2n
+f4 0 q = 1
 f4 n q = (f4A n q) - (f4B n q)
 
+-- f4A calcula la sumatoria de q^i de 0 a 2n
 f4A :: Integer -> Float -> Float
 f4A 0 q = 1
 f4A n q = q ^ (2 * n) + q ^ ((2 * n) - 1) + f4A (n - 1) q
 
+-- f4B calcula la sumatoria de q^i de 0 a n-1. tiene 2 caso base para que n - 2 nunca pueda "saltear" el caso base n=0 y se vaya al negativo
 f4B :: Integer -> Float -> Float
 f4B 0 q = 1
+f4B 1 q = q + 1
 f4B n q = q ^ (n - 1) + f4B (n - 2) q 
