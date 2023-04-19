@@ -80,8 +80,8 @@ f3 1 q = q ^ 2 + q
 f3 n q = q ^ (2 * n) + q ^ ((2 * n) - 1) + f3 (n - 1) q
 
 -- d)
-f4 :: Integer -> Float -> Float
 -- f4 calcula la sumatoria de q^i de n a 2n
+f4 :: Integer -> Float -> Float
 f4 0 q = 1
 f4 n q = (f4A n q) - (f4B n q)
 
@@ -95,3 +95,51 @@ f4B :: Integer -> Float -> Float
 f4B 0 q = 1
 f4B 1 q = q + 1
 f4B n q = q ^ (n - 1) + f4B (n - 2) q 
+
+-- Ejercicio 11
+-- a)
+-- eAprox :: Integer -> Float
+-- eAprox 0 = 1
+-- eAprox n = fromIntegral (1 / (factorial n)) + eAprox (n - 1)
+
+factorial :: Integer -> Integer
+factorial 0 = 1
+factorial n = n * factorial (n - 1)
+
+-- b)
+
+
+-- Ejercicio 12
+raizDe2Aprox :: Integer -> Float
+raizDe2Aprox n = (sucesion n) - 1
+
+sucesion :: Integer -> Float
+sucesion 1 = 2
+sucesion n = 2 + (1 / (sucesion (n - 1)))
+
+-- Ejercicio 13
+sumatoriaNM :: Integer -> Integer -> Integer
+sumatoriaNM 1 m = sumatoriaM 1 m
+sumatoriaNM n m = sumatoriaM n m + sumatoriaNM (n - 1) m
+
+sumatoriaM :: Integer -> Integer -> Integer
+sumatoriaM n 1 = n
+sumatoriaM n m = (n ^ m) + sumatoriaM n (m - 1)
+
+-- Ejercicio 14
+sumaPotencias :: Integer -> Integer -> Integer -> Integer
+sumaPotencias q n 1 = recursionEnN q n 1
+sumaPotencias q n m = recursionEnN q n m + sumaPotencias q n (m - 1)
+
+recursionEnN :: Integer -> Integer -> Integer -> Integer
+recursionEnN q 1 m = q ^ (1 + m)
+recursionEnN q n m = q ^ (n + m) + recursionEnN q (n - 1) m
+
+-- Ejercicio 15
+-- sumaRacionales :: Integer -> Integer -> Float
+-- sumaRacionales 1 m = sumaRacionalesAux 1 m
+-- sumaRacionales n m = sumaRacionalesAux n m + sumaRacionales (n - 1) m
+
+-- sumaRacionalesAux :: Integer -> Integer -> Float
+-- sumaRacionalesAux n 1 = fromInteger n
+-- sumaRacionalesAux n m = (n / m) + sumaRacionalesAux n (m - 1)
