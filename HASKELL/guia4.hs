@@ -144,3 +144,4 @@ sumaRacionales n m = sumaRacionalesAux n m + sumaRacionales (n - 1) m
 sumaRacionalesAux :: Integer -> Integer -> Float
 sumaRacionalesAux n 1 = fromInteger n
 sumaRacionalesAux n m = ((fromIntegral n) / (fromInteger m)) + sumaRacionalesAux n (m - 1)
+
