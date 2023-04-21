@@ -98,16 +98,17 @@ f4B n q = q ^ (n - 1) + f4B (n - 2) q
 
 -- Ejercicio 11
 -- a)
--- eAprox :: Integer -> Float
--- eAprox 0 = 1
--- eAprox n = fromIntegral (1 / (factorial n)) + eAprox (n - 1)
+eAprox :: Integer -> Float
+eAprox 0 = 1
+eAprox n =  (1.0 / fromIntegral (factorial n)) + eAprox (n - 1)
 
 factorial :: Integer -> Integer
 factorial 0 = 1
 factorial n = n * factorial (n - 1)
 
 -- b)
-
+e :: Float
+e = eAprox 10
 
 -- Ejercicio 12
 raizDe2Aprox :: Integer -> Float
@@ -136,10 +137,10 @@ recursionEnN q 1 m = q ^ (1 + m)
 recursionEnN q n m = q ^ (n + m) + recursionEnN q (n - 1) m
 
 -- Ejercicio 15
--- sumaRacionales :: Integer -> Integer -> Float
--- sumaRacionales 1 m = sumaRacionalesAux 1 m
--- sumaRacionales n m = sumaRacionalesAux n m + sumaRacionales (n - 1) m
+sumaRacionales :: Integer -> Integer -> Float
+sumaRacionales 1 m = sumaRacionalesAux 1 m
+sumaRacionales n m = sumaRacionalesAux n m + sumaRacionales (n - 1) m
 
--- sumaRacionalesAux :: Integer -> Integer -> Float
--- sumaRacionalesAux n 1 = fromInteger n
--- sumaRacionalesAux n m = (n / m) + sumaRacionalesAux n (m - 1)
+sumaRacionalesAux :: Integer -> Integer -> Float
+sumaRacionalesAux n 1 = fromInteger n
+sumaRacionalesAux n m = ((fromIntegral n) / (fromInteger m)) + sumaRacionalesAux n (m - 1)
