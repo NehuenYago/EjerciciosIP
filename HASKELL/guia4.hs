@@ -145,3 +145,40 @@ sumaRacionalesAux :: Integer -> Integer -> Float
 sumaRacionalesAux n 1 = fromInteger n
 sumaRacionalesAux n m = ((fromIntegral n) / (fromInteger m)) + sumaRacionalesAux n (m - 1)
 
+-- Ejercicio 16
+-- a)
+menorDivisor :: Integer -> Integer
+menorDivisor 1 = 1
+menorDivisor n = menorDivisorAux n 2
+
+menorDivisorAux :: Integer -> Integer -> Integer
+menorDivisorAux n m
+ | mod n m == 0 = m
+ | otherwise = menorDivisorAux n (m + 1)
+
+--  b)
+esPrimo :: Integer -> Bool
+esPrimo n
+ | n /= 1 && (menorDivisor n == n) = True
+ | otherwise = False
+
+-- c)
+sonCoprimos :: Integer -> Integer -> Bool
+sonCoprimos n m = comparaDivisores n m 2
+
+comparaDivisores :: Integer -> Integer -> Integer -> Bool
+comparaDivisores n m i
+ | (i > n) || (i > m) = True
+ | (mod n i == 0) && (mod m i == 0) = False
+ | otherwise = comparaDivisores n m (i + 1)
+
+-- --  d)
+nEsimoPrimo :: Integer -> Integer
+nEsimoPrimo n = nEsimoPrimoAux n 2 
+
+nEsimoPrimoAux :: Integer -> Integer -> Integer
+nEsimoPrimoAux n i
+ | esPrimo i && n == 1 = i
+ | esPrimo i = nEsimoPrimoAux (n - 1) (i + 1)
+ | otherwise = nEsimoPrimoAux n (i + 1)
+
