@@ -182,3 +182,13 @@ nEsimoPrimoAux n i
  | esPrimo i = nEsimoPrimoAux (n - 1) (i + 1)
  | otherwise = nEsimoPrimoAux n (i + 1)
 
+-- Ejercicio 17
+esFibonacci :: Integer -> Bool
+esFibonacci n = esFibonacciAux n 0
+
+esFibonacciAux :: Integer -> Integer -> Bool
+esFibonacciAux n i
+ | fibonacci i < n = esFibonacciAux n (i + 1)
+ | fibonacci i == n = True
+ | otherwise = False
+
