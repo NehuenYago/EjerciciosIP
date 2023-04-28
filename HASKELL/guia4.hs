@@ -90,7 +90,7 @@ f4A :: Integer -> Float -> Float
 f4A 0 q = 1
 f4A n q = q ^ (2 * n) + q ^ ((2 * n) - 1) + f4A (n - 1) q
 
--- f4B calcula la sumatoria de q^i de 0 a n-1. tiene 2 caso base para que n - 2 nunca pueda "saltear" el caso base n=0 y se vaya al negativo
+-- f4B calcula la sumatoria de q^i de 0 a n-1. tiene 2 caso base para que n - 2 nunca pueda "saltar" el caso base n=0 y se vaya al negativo
 f4B :: Integer -> Float -> Float
 f4B 0 q = 1
 f4B 1 q = q + 1
@@ -192,3 +192,21 @@ esFibonacciAux n i
  | fibonacci i == n = True
  | otherwise = False
 
+-- Ejercicio 18
+mayorDigitoPar :: Integer -> Integer
+mayorDigitoPar n = mayorDigitoParAux n (-1)
+
+mayorDigitoParAux :: Integer -> Integer -> Integer
+mayorDigitoParAux n m 
+ | n < 10 && devuelvePar n >= m = devuelvePar n
+ | n < 10 && devuelvePar n < m = m
+ | devuelvePar (ultimoDigito n) >= m = mayorDigitoParAux (div n 10) (devuelvePar (ultimoDigito n))
+ | devuelvePar (ultimoDigito n) < m = mayorDigitoParAux (div n 10) m
+
+devuelvePar :: Integer -> Integer
+devuelvePar n
+ | (mod n 2) == 0 = n
+ | otherwise = (-1)
+
+ultimoDigito :: Integer -> Integer
+ultimoDigito n = mod n 10
