@@ -210,3 +210,17 @@ devuelvePar n
 
 ultimoDigito :: Integer -> Integer
 ultimoDigito n = mod n 10
+
+-- Ejercicio 19
+esSumaInicialDePrimos :: Integer -> Bool
+esSumaInicialDePrimos n = esSumaInicialDePrimosAux n 1
+
+esSumaInicialDePrimosAux :: Integer -> Integer -> Bool
+esSumaInicialDePrimosAux n i
+ | n == contadorPrimos i = True
+ | n > contadorPrimos i = esSumaInicialDePrimosAux n (i + 1)
+ | otherwise = False 
+
+contadorPrimos :: Integer -> Integer
+contadorPrimos 1 = nEsimoPrimo 1
+contadorPrimos i = nEsimoPrimo i + contadorPrimos (i - 1)
