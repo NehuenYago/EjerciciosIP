@@ -224,3 +224,22 @@ esSumaInicialDePrimosAux n i
 contadorPrimos :: Integer -> Integer
 contadorPrimos 1 = nEsimoPrimo 1
 contadorPrimos i = nEsimoPrimo i + contadorPrimos (i - 1)
+
+-- Ejercicio 20
+tomaValorMax :: Integer -> Integer -> Integer
+tomaValorMax n1 n2 = tomaValorMaxAux n1 (n1 + 1) n2
+
+tomaValorMaxAux :: Integer -> Integer -> Integer -> Integer
+tomaValorMaxAux n1 i n2
+ | i > n2 = n1
+ | sumaDivisores n1 >= sumaDivisores i = tomaValorMaxAux n1 (i + 1) n2
+ | otherwise = tomaValorMaxAux i (i + 1) n2
+
+sumaDivisores :: Integer -> Integer
+sumaDivisores n = sumaDivisoresAux n 1
+
+sumaDivisoresAux :: Integer -> Integer -> Integer
+sumaDivisoresAux n i
+ | n == i = i
+ | mod n i == 0 = i + sumaDivisoresAux n (i + 1)
+ | otherwise = sumaDivisoresAux n (i + 1)
