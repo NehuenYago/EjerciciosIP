@@ -243,3 +243,18 @@ sumaDivisoresAux n i
  | n == i = i
  | mod n i == 0 = i + sumaDivisoresAux n (i + 1)
  | otherwise = sumaDivisoresAux n (i + 1)
+
+ -- Ejercicio 21
+pitagoras :: Integer -> Integer -> Integer -> Integer
+pitagoras 0 n r = recursionN 0 n r
+pitagoras m n r = recursionN m n r + pitagoras (m - 1) n r
+
+recursionN :: Integer -> Integer -> Integer -> Integer
+recursionN m 0 r = comparaPQR m 0 r
+recursionN m n r = comparaPQR m n r + recursionN m (n - 1) r
+
+comparaPQR :: Integer -> Integer -> Integer -> Integer
+comparaPQR m n r
+ | (m ^ 2) + (n ^ 2) <= (r ^ 2) = 1
+ | otherwise = 0
+ 
