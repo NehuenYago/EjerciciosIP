@@ -92,3 +92,8 @@ capicua s = s == reverso s
 sumatoria :: [Integer] -> Integer
 sumatoria [] = 0
 sumatoria (x:xs) = x + sumatoria xs
+
+-- 3.2)
+productoria :: [Integer] -> Integer
+productoria [] = 1
+productoria (x:xs) = x * productoria xs
