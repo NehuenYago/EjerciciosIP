@@ -113,3 +113,7 @@ sumarN n (x:xs) = (x + n) : sumarN n xs
 -- 3.5)
 sumarElPrimero :: [Integer] -> [Integer]
 sumarElPrimero (x:xs) = sumarN x (x:xs)
+
+-- 3.6)
+sumarElUltimo :: [Integer] -> [Integer]
+sumarElUltimo s = sumarN (ultimo s) s
