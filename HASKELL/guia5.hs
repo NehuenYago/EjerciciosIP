@@ -124,3 +124,10 @@ pares [] = []
 pares (x:xs)
  | (mod x 2 == 0) = x : pares xs
  | otherwise = pares xs
+
+--  3.8)
+multiplosDeN :: Integer -> [Integer] -> [Integer]
+multiplosDeN _ [] = []
+multiplosDeN n (x:xs)
+ | (mod x n == 0) = x : multiplosDeN n xs
+ | otherwise = multiplosDeN n xs
