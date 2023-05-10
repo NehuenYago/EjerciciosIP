@@ -44,8 +44,8 @@ hayRepetidos [] = False
 hayRepetidos (x:xs) = pertenece x xs || hayRepetidos xs
 
 -- 2.4) otra forma
--- hayRepetidos :: (Eq t) => [t] -> Bool
--- hayRepetidos s = not (todosDistintos s)
+hayRepetidos2 :: (Eq t) => [t] -> Bool
+hayRepetidos2 s = not (todosDistintos s)
 
 -- 2.5)
 quitar :: (Eq t) => t -> [t] -> [t]
@@ -79,13 +79,13 @@ capicua :: (Eq t) => [t] -> Bool
 capicua s = s == reverso s
 
 -- 2.9) otra forma
--- capicua [] = True
--- capicua [_] = True
--- capicua (x:xs) = (x == ultimo xs) && capicua (eliminaUltimo xs) 
+capicua2 [] = True
+capicua2 [_] = True
+capicua2 (x:xs) = (x == ultimo xs) && capicua (eliminaUltimo xs) 
 
--- eliminaUltimo :: [t] -> [t]
--- eliminaUltimo [_] = []
--- eliminaUltimo (x:xs) = x : eliminaUltimo xs
+eliminaUltimo :: [t] -> [t]
+eliminaUltimo [_] = []
+eliminaUltimo (x:xs) = x : eliminaUltimo xs
 
 -- Ejercicio 3
 -- 3.1)
@@ -117,3 +117,10 @@ sumarElPrimero (x:xs) = sumarN x (x:xs)
 -- 3.6)
 sumarElUltimo :: [Integer] -> [Integer]
 sumarElUltimo s = sumarN (ultimo s) s
+
+-- 3.7)
+pares :: [Integer] -> [Integer]
+pares [] = []
+pares (x:xs)
+ | (mod x 2 == 0) = x : pares xs
+ | otherwise = pares xs
