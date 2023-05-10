@@ -97,3 +97,10 @@ sumatoria (x:xs) = x + sumatoria xs
 productoria :: [Integer] -> Integer
 productoria [] = 1
 productoria (x:xs) = x * productoria xs
+
+-- 3.3)
+maximo :: [Integer] -> Integer
+maximo [x] = x
+maximo (x:xs)
+ | x >= head xs = maximo (x : (tail xs))
+ | otherwise = maximo xs
