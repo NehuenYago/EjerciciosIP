@@ -86,3 +86,9 @@ capicua s = s == reverso s
 -- eliminaUltimo :: [t] -> [t]
 -- eliminaUltimo [_] = []
 -- eliminaUltimo (x:xs) = x : eliminaUltimo xs
+
+-- Ejercicio 3
+-- 3.1)
+sumatoria :: [Integer] -> Integer
+sumatoria [] = 0
+sumatoria (x:xs) = x + sumatoria xs
