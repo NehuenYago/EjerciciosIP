@@ -109,3 +109,7 @@ maximo (x:xs)
 sumarN :: Integer -> [Integer] -> [Integer]
 sumarN n [x] = (x + n) : []
 sumarN n (x:xs) = (x + n) : sumarN n xs
+
+-- 3.5)
+sumarElPrimero :: [Integer] -> [Integer]
+sumarElPrimero (x:xs) = sumarN x (x:xs)
