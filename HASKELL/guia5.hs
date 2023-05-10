@@ -104,3 +104,8 @@ maximo [x] = x
 maximo (x:xs)
  | x >= head xs = maximo (x : (tail xs))
  | otherwise = maximo xs
+
+-- 3.4)
+sumarN :: Integer -> [Integer] -> [Integer]
+sumarN n [x] = (x + n) : []
+sumarN n (x:xs) = (x + n) : sumarN n xs
