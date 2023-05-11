@@ -131,3 +131,31 @@ multiplosDeN _ [] = []
 multiplosDeN n (x:xs)
  | (mod x n == 0) = x : multiplosDeN n xs
  | otherwise = multiplosDeN n xs
+
+-- 3.9)
+ordenar :: [Integer] -> [Integer]
+ordenar [] = []
+ordenar s = verificaOrden s s
+
+verificaOrden :: [Integer] -> [Integer] -> [Integer]
+verificaOrden [x] s = s
+verificaOrden (x1:x2:xs) s
+ | x1 <= x2 = verificaOrden (x2:xs) s
+ | otherwise = ordenar (cambiaLugar s)
+
+cambiaLugar :: [Integer] -> [Integer]
+cambiaLugar [x] = [x]
+cambiaLugar (x1:x2:xs)
+ | x1 <= x2 = x1 : cambiaLugar (x2:xs)
+ | otherwise = x2 : x1 : xs
+
+-- 3.9) otra forma
+ordenar2 :: [Integer] -> [Integer]
+ordenar2 [] = []
+ordenar2 (x:xs) = ordenar2Aux x (ordenar xs)
+
+ordenar2Aux :: Integer -> [Integer] -> [Integer]
+ordenar2Aux x [] = [x]
+ordenar2Aux x (y:ys) 
+    | x <= y = x : y : ys
+    | otherwise = y : ordenar2Aux x ys
