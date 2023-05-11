@@ -159,3 +159,12 @@ ordenar2Aux x [] = [x]
 ordenar2Aux x (y:ys) 
     | x <= y = x : y : ys
     | otherwise = y : ordenar2Aux x ys
+
+-- Ejercicio 4
+-- 4.1)
+sacarBlancosRepetidos :: [Char] -> [Char]
+sacarBlancosRepetidos [] = []
+sacarBlancosRepetidos [c1] = [c1]
+sacarBlancosRepetidos (c1:c2:cs)
+ | (' ' == c1) && (c1 == c2) = sacarBlancosRepetidos (c1:cs)
+ | otherwise = c1 : sacarBlancosRepetidos (c2:cs)
