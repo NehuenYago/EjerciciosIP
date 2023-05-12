@@ -168,3 +168,21 @@ sacarBlancosRepetidos [c1] = [c1]
 sacarBlancosRepetidos (c1:c2:cs)
  | (' ' == c1) && (c1 == c2) = sacarBlancosRepetidos (c1:cs)
  | otherwise = c1 : sacarBlancosRepetidos (c2:cs)
+
+-- 4.2)
+contarPalabras :: [Char] -> Integer
+contarPalabras s = contarPalabrasAux (sacarRepetidos s)
+
+contarPalabrasAux :: [Char] -> Integer
+contarPalabrasAux [' '] = 0
+contarPalabrasAux [c1] = 1
+contarPalabrasAux (c1:c2:cs) 
+ | c1 /= ' ' && c2 == ' ' = contarPalabrasAux (c2:cs)
+ | c1 == ' ' && c2 /= ' ' = 1 + contarPalabrasAux (c2:cs)
+
+sacarRepetidos [c1] = [c1]
+sacarRepetidos [] = []
+sacarRepetidos (c1:c2:cs)
+ | c1 == ' ' && c1 == c2 = sacarRepetidos (c2:cs)
+ | c1 /= ' ' && c2 /= ' ' = sacarRepetidos (c2:cs)
+ | otherwise = c1 : sacarRepetidos (c2:cs)
