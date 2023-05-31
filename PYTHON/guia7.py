@@ -99,3 +99,10 @@ def devolverElDobleSiEsPar(numero: int) -> int:
         return numero*2
     else: 
         return numero
+
+# 5.2)
+def devolverValorSiEsParSinoElQueSigue(numero: int) -> int:
+    if esPar(numero):
+        return numero
+    else: 
+        return numero+1
