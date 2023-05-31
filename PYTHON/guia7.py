@@ -175,3 +175,10 @@ def cuentaRegresiva(numero: int):
         print(numero)
         numero -= 1
     print("Despegue!")
+
+# 6.5)
+def viajeAlPasado(partida: int, llegada: int):
+    while partida > llegada:
+        partida -= 1
+        print("Viajo un año al pasado, estamos en el año: ", partida)
+    print("Llegue al año ", llegada)
