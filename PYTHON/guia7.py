@@ -123,3 +123,10 @@ def devolverElDobleSiEsMultiplo3TripleSiEsMultiplo9v2(numero: int) -> int:
         return numero*3
     else:
         return numero
+
+# 5.4)
+def longitudNombre(nombre: str):
+    if len(nombre) >= 5:
+        print("Tu nombre tiene muchad letras!")
+    else:
+        print("Tu nombre tiene menos de 5 caracteres")
