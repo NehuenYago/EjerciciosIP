@@ -28,3 +28,8 @@ def factorial4() -> int:
 # 1.7)
 def factorial5() -> int:
     return 5 * factorial4()
+
+# Ejercicio 2
+# 2.1)
+def imprimirSaludo(nombre: str):
+    return print("Hola " + nombre)
