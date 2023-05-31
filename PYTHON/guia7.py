@@ -33,3 +33,7 @@ def factorial5() -> int:
 # 2.1)
 def imprimirSaludo(nombre: str):
     return print("Hola " + nombre)
+
+# 2.2)
+def raizCuadradaDe(numero: int) -> float:
+    return math.sqrt(numero)
