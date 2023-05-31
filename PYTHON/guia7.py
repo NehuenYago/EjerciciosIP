@@ -41,3 +41,4 @@ def raizCuadradaDe(numero: int) -> float:
 # 2.3)
 def imprimirDosVeces(estribillo: str):
     print (estribillo * 4)
+estribillo = "Around the world, around the wooorld!\n"
