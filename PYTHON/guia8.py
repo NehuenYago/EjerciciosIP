@@ -27,3 +27,10 @@ def ordenados (s:list) -> bool:
         if not s[i] < s[i+1]:
             return False
     return True
+
+# 1.5)
+def palabraLarga (s:list) -> bool:
+    for i in s:
+        if len(i) > 7:
+            return True
+    return False
