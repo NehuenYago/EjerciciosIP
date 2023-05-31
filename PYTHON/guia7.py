@@ -168,3 +168,10 @@ def eco():
     while i < 10:
         print("eco")
         i += 1
+
+# 6.4)
+def cuentaRegresiva(numero: int):
+    while numero > 0:
+        print(numero)
+        numero -= 1
+    print("Despegue!")
