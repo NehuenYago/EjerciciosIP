@@ -66,3 +66,8 @@ def algunoEsCero(numero1: int, numero2: int) -> bool:
 # 3.2)
 def ambosSonCero(numero1: int, numero2: int) -> bool:
     return (numero1 == 0) and (numero2 == 0)
+
+# 3.3)
+def esNombreLargo(nombre: str) -> bool:
+    longitud = len(nombre)
+    return longitud >= 3 and longitud <= 8
