@@ -19,3 +19,8 @@ def imprimirUnVerso():
 
 # imprimirUnVerso()
 
+# 1.4)
+def factorial2() -> int:
+    return 2
+
+# print(factorial2())
