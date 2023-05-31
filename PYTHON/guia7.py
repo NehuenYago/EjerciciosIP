@@ -151,3 +151,13 @@ def numerosHastaDiez() -> int:
     while i <= 10:
         print(i)
         i += 1
+
+# 6.2)
+def numeroParesDiezCuarenta():
+    i = 10
+    while i <= 40:
+        if esPar(i):
+            print(i)
+            i += 1
+        else:
+            i += 1
