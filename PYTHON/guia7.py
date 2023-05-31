@@ -91,3 +91,11 @@ def esPesoUtil(peso: int) -> bool:
 # 4.3) 4.4)
 def sirvePino(altura: int) -> bool:
     return esPesoUtil(pesoPino(altura))
+
+# Ejercicio 5
+# 5.1)
+def devolverElDobleSiEsPar(numero: int) -> int:
+    if esPar(numero):
+        return numero*2
+    else: 
+        return numero
