@@ -49,3 +49,7 @@ def esMultiploDe(n: int, m: int) -> bool:
         return True
     else:
         return False
+
+# 2.5)
+def esPar(numero: int) -> bool:
+    return esMultiploDe(numero, 2)
