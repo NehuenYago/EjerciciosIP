@@ -143,3 +143,11 @@ def vacacionesOTrabajo(edad: int, sexo: str):
             print("Anda de vacaciones")
         else:
             print("Anda a trabajar")
+
+# Ejercicio 6
+# 6.1)
+def numerosHastaDiez() -> int:
+    i = 1
+    while i <= 10:
+        print(i)
+        i += 1
