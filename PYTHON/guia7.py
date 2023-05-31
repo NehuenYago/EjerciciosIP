@@ -62,3 +62,7 @@ def cantidadDePizzas(comensales: int, cantDePorciones: int) -> int:
 # 3.1)
 def algunoEsCero(numero1: int, numero2: int) -> bool:
     return (numero1 == 0) or (numero2 == 0)
+
+# 3.2)
+def ambosSonCero(numero1: int, numero2: int) -> bool:
+    return (numero1 == 0) and (numero2 == 0)
