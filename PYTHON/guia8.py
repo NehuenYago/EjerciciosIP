@@ -23,13 +23,7 @@ def sumaTotal (s:list) -> int:
 
 # 1.4)
 def ordenados (s:list) -> bool:
-    i = 0
-    # while i < len(s)-1:
-    for i in s:
-        if s[i] < s[i+1]:
-            i += 1
-        else:
+    for i in range(len(s)-1):
+        if not s[i] < s[i+1]:
             return False
     return True
-
-# print(ordenados([1,3,4,6,5,6]))
