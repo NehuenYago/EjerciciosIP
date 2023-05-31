@@ -8,7 +8,6 @@ def pertenece (s:list, e:int) -> bool:
 
 # 1.2)
 def divideATodos (s:list, e:int) -> bool:
-    i = 0
     for i in s:
         if not i % e == 0:
             return False
@@ -34,3 +33,14 @@ def palabraLarga (s:list) -> bool:
         if len(i) > 7:
             return True
     return False
+
+# 1.6)
+def esPalindroma (p:str) -> bool:
+    i = 0
+    while i < (len(p))/2:
+        if p[i] != p[len(p)-1-i]:
+            return False
+        i += 1
+    return True
+
+print(esPalindroma('nuen'))
