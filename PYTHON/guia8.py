@@ -73,3 +73,15 @@ def tieneMinMayusYNum (s:str) -> bool:
         n += 1
 
     return (tieneMin and tieneMayus and tieneNum)
+
+# 1.8)
+def cuentaBancaria (transacciones:list[tuple]) -> int:
+    saldo = 0
+    for t in transacciones:
+        if t[0] == 'I':
+            saldo += t[1]
+        elif t[0] == 'R':
+            saldo -= t[1]
+    return saldo
+
+print(cuentaBancaria([('I', 2000), ('R',20),('R', 1000),('I', 300)]))
