@@ -130,3 +130,16 @@ def longitudNombre(nombre: str):
         print("Tu nombre tiene muchad letras!")
     else:
         print("Tu nombre tiene menos de 5 caracteres")
+
+# 5.5)
+def vacacionesOTrabajo(edad: int, sexo: str):
+    if sexo == "M":
+        if edad < 18 or edad >= 65:
+            print("Anda de vacaciones")
+        else:
+            print("Anda a trabajar")
+    elif sexo == "F":
+        if edad < 18 or edad >= 60:
+            print("Anda de vacaciones")
+        else:
+            print("Anda a trabajar")
