@@ -161,3 +161,10 @@ def numeroParesDiezCuarenta():
             i += 1
         else:
             i += 1
+
+# 6.3)
+def eco():
+    i = 0
+    while i < 10:
+        print("eco")
+        i += 1
