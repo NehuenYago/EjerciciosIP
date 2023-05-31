@@ -182,3 +182,10 @@ def viajeAlPasado(partida: int, llegada: int):
         partida -= 1
         print("Viajo un año al pasado, estamos en el año: ", partida)
     print("Llegue al año ", llegada)
+
+# 6.6)
+def viajeHastaAristoteles(partida: int):
+    while partida <= -394 or partida >= -374:
+        partida -= 20
+        print("Viajo 20 años al pasado, estoy en el ", partida)
+    print("Conoci a Aristoteles!")
