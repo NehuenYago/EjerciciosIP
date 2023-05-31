@@ -37,3 +37,7 @@ def imprimirSaludo(nombre: str):
 # 2.2)
 def raizCuadradaDe(numero: int) -> float:
     return math.sqrt(numero)
+
+# 2.3)
+def imprimirDosVeces(estribillo: str):
+    print (estribillo * 4)
