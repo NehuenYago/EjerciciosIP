@@ -43,4 +43,33 @@ def esPalindroma (p:str) -> bool:
         i += 1
     return True
 
-print(esPalindroma('nuen'))
+# 1.7)
+def analizarContraseña (c:str) -> str:
+
+    if len(c) < 5:
+        return "ROJA"
+    elif len(c) > 8 and tieneMinMayusYNum(c):
+        return "VERDE"
+    else:
+        return "AMARILLA"
+
+def tieneMinMayusYNum (s:str) -> bool:
+    tieneMin: bool = False
+    tieneMayus: bool = False
+    tieneNum: bool = False
+    n = 0
+
+    for i in s:
+        if 'a'<=i<='z':
+            tieneMin = True
+
+        if 'A'<=i<='Z':
+            tieneMayus = True
+
+    while n < 10:
+        for i in s:
+            if i == str(n):
+                tieneNum = True
+        n += 1
+
+    return (tieneMin and tieneMayus and tieneNum)
