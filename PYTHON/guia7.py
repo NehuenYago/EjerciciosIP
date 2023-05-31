@@ -75,3 +75,11 @@ def esNombreLargo(nombre: str) -> bool:
 # 3.4)
 def esBisiesto(year: int) -> bool:
     return esMultiploDe(year, 400) or (esMultiploDe(year, 4) and not esMultiploDe(year, 100))
+
+# Ejercicio 4
+# 4.1)
+def pesoPino(altura: int) -> int:
+    if altura <= 300:
+        return altura * 3
+    else:
+        return 900 + ((altura - 300) * 2)
