@@ -87,3 +87,7 @@ def pesoPino(altura: int) -> int:
 # 4.2)
 def esPesoUtil(peso: int) -> bool:
     return peso >= 400 and peso <= 1000
+
+# 4.3) 4.4)
+def sirvePino(altura: int) -> bool:
+    return esPesoUtil(pesoPino(altura))
