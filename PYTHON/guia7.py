@@ -71,3 +71,7 @@ def ambosSonCero(numero1: int, numero2: int) -> bool:
 def esNombreLargo(nombre: str) -> bool:
     longitud = len(nombre)
     return longitud >= 3 and longitud <= 8
+
+# 3.4)
+def esBisiesto(year: int) -> bool:
+    return esMultiploDe(year, 400) or (esMultiploDe(year, 4) and not esMultiploDe(year, 100))
