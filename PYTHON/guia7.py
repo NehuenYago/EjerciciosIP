@@ -7,3 +7,7 @@ def raizDe2() -> float:
 
 # print(raizDe2())
 
+def imprimirHola():
+    print("hola")
+
+# imprimirHola()
