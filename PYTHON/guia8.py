@@ -6,7 +6,7 @@ def pertenece (s: list, e: int) -> bool:
             return True
     return False
 
-# 2.1)
+# 1.2)
 def divideATodos (s: list, e: int) -> bool:
     i = 0
     while i < len(s):
@@ -15,3 +15,5 @@ def divideATodos (s: list, e: int) -> bool:
         else:
             return False
     return True
+
+# 1.3)
