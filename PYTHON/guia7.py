@@ -53,3 +53,8 @@ def esMultiploDe(n: int, m: int) -> bool:
 # 2.5)
 def esPar(numero: int) -> bool:
     return esMultiploDe(numero, 2)
+
+# 2.6)
+def cantidadDePizzas(comensales: int, cantDePorciones: int) -> int:
+    return math.ceil((cantDePorciones * comensales) / 8)
+
