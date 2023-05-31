@@ -21,3 +21,6 @@ def factorial2() -> int:
 def factorial3() -> int:
     return 3 * factorial2()
 
+# 1.6)
+def factorial4() -> int:
+    return 4 * factorial3()
