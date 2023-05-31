@@ -106,3 +106,20 @@ def devolverValorSiEsParSinoElQueSigue(numero: int) -> int:
         return numero
     else: 
         return numero+1
+
+# 5.3)
+def devolverElDobleSiEsMultiplo3TripleSiEsMultiplo9(numero: int) -> int:
+    if esMultiploDe(numero, 9):
+        return numero*3
+    elif esMultiploDe(numero, 3):
+        return numero*2
+    else:
+        return numero
+    
+def devolverElDobleSiEsMultiplo3TripleSiEsMultiplo9v2(numero: int) -> int:
+    if esMultiploDe(numero, 3) and not esMultiploDe(numero, 9):
+        return numero*2
+    elif esMultiploDe(numero, 9):
+        return numero*3
+    else:
+        return numero
