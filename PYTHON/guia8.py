@@ -144,4 +144,10 @@ def reemplazaVocales (s:str) -> str:
         else:
             s2 += i
     return s2
-print(reemplazaVocales('hola como estas manito'))
+
+# 2.5)
+def daVueltaStr (s:str) -> str:
+    s2:str = ''
+    for i in s:
+        s2 = i + s2
+    return s2
