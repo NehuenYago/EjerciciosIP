@@ -126,3 +126,11 @@ def borraEnPares2 (lista:list) -> list:
             lista2.append(lista[i])
 
     return lista2
+
+# 2.3)
+def sacaVocales (texto:str) -> str:
+    textoSinVocales:str = ''
+    for i in texto:
+        if not (i == 'a' or i == 'e' or i == 'i' or i == 'o' or i == 'u'):
+            textoSinVocales += i
+    return textoSinVocales
