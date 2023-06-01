@@ -105,3 +105,14 @@ def alMenosTresVocalesDistintas (palabra: str) -> bool:
     
     vocales: int = hayA + hayE + hayI + hayO + hayU
     return (vocales >= 3)
+
+# Ejercicio 2
+# 2.1)
+def borraEnPares (lista:list) -> list:
+    switch: bool = True
+    
+    for l in range(len(lista)):
+        if switch:
+            lista[l] = 0
+        switch = not switch
+    return lista
