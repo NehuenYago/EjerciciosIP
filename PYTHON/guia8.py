@@ -134,3 +134,14 @@ def sacaVocales (texto:str) -> str:
         if not (i == 'a' or i == 'e' or i == 'i' or i == 'o' or i == 'u'):
             textoSinVocales += i
     return textoSinVocales
+
+# 2.4)
+def reemplazaVocales (s:str) -> str:
+    s2:str = ''
+    for i in s:
+        if (i == 'a' or i == 'e' or i == 'i' or i == 'o' or i == 'u'):
+            s2 += '_'
+        else:
+            s2 += i
+    return s2
+print(reemplazaVocales('hola como estas manito'))
