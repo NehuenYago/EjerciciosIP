@@ -1,5 +1,5 @@
 # Ejercicio 1
-# 1.1) Si se implementa con tipos genericos sirve para buscar una caracter en una string
+# 1.1) Si se implementa con tipos genericos sirve para buscar un caracter en una string
 def pertenece (s:list, e:int) -> bool:
     for i in s:
         if i == e:
@@ -15,7 +15,7 @@ def divideATodos (s:list, e:int) -> bool:
 
 # 1.3)
 def sumaTotal (s:list) -> int:
-    total = 0
+    total: int = 0
     for i in s:
         total += i
     return total
@@ -36,7 +36,7 @@ def palabraLarga (s:list) -> bool:
 
 # 1.6)
 def esPalindroma (p:str) -> bool:
-    i = 0
+    i: int = 0
     while i < (len(p))/2:
         if p[i] != p[len(p)-1-i]:
             return False
@@ -45,7 +45,6 @@ def esPalindroma (p:str) -> bool:
 
 # 1.7)
 def analizarContraseña (c:str) -> str:
-
     if len(c) < 5:
         return "ROJA"
     elif len(c) > 8 and tieneMinMayusYNum(c):
@@ -57,7 +56,7 @@ def tieneMinMayusYNum (s:str) -> bool:
     tieneMin: bool = False
     tieneMayus: bool = False
     tieneNum: bool = False
-    n = 0
+    n: int = 0
 
     for i in s:
         if 'a'<=i<='z':
@@ -76,7 +75,7 @@ def tieneMinMayusYNum (s:str) -> bool:
 
 # 1.8)
 def cuentaBancaria (transacciones:list[tuple]) -> int:
-    saldo = 0
+    saldo: int = 0
     for t in transacciones:
         if t[0] == 'I':
             saldo += t[1]
@@ -84,4 +83,25 @@ def cuentaBancaria (transacciones:list[tuple]) -> int:
             saldo -= t[1]
     return saldo
 
-print(cuentaBancaria([('I', 2000), ('R',20),('R', 1000),('I', 300)]))
+# 1.9)
+def alMenosTresVocalesDistintas (palabra: str) -> bool:
+    hayA:int = 0
+    hayE:int = 0
+    hayI:int = 0
+    hayO:int = 0
+    hayU:int = 0
+
+    for p in palabra:
+        if p == 'a':
+            hayA = 1
+        if p == 'e':
+            hayE = 1
+        if p == 'i':
+            hayI = 1
+        if p == 'o':
+            hayO = 1
+        if p == 'u':
+            hayU = 1
+    
+    vocales: int = hayA + hayE + hayI + hayO + hayU
+    return (vocales >= 3)
