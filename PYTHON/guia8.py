@@ -1,5 +1,5 @@
 # Ejercicio 1
-# 1.1) Si se implementa con tipos genericos sirve para buscar un caracter en una string
+# 1.1) Si se implementa con tipos genericos sirve esPara buscar un caracter en una string
 def pertenece (s:list, e:int) -> bool:
     for i in s:
         if i == e:
@@ -109,10 +109,20 @@ def alMenosTresVocalesDistintas (palabra: str) -> bool:
 # Ejercicio 2
 # 2.1)
 def borraEnPares (lista:list) -> list:
-    switch: bool = True
-    
-    for l in range(len(lista)):
-        if switch:
-            lista[l] = 0
-        switch = not switch
+    for i in range(len(lista)):
+        if i%2 == 0:
+            lista[i] = 0
+
     return lista
+
+# 2.2)
+def borraEnPares2 (lista:list) -> list:
+    lista2: list = []
+
+    for i in range(len(lista)):
+        if i%2 == 0:
+            lista2.append(0)
+        else:
+            lista2.append(lista[i])
+
+    return lista2
