@@ -1,34 +1,36 @@
+from stdlib import typing
+
 # Ejercicio 1
 # 1.1) Si se implementa con tipos genericos sirve esPara buscar un caracter en una string
-def pertenece (s:list, e:int) -> bool:
+def pertenece (s:list[int], e:int) -> bool:
     for i in s:
         if i == e:
             return True
     return False
 
 # 1.2)
-def divideATodos (s:list, e:int) -> bool:
+def divideATodos (s:list[int], e:int) -> bool:
     for i in s:
         if not i % e == 0:
             return False
     return True
 
 # 1.3)
-def sumaTotal (s:list) -> int:
+def sumaTotal (s:list[int]) -> int:
     total: int = 0
     for i in s:
         total += i
     return total
 
 # 1.4)
-def ordenados (s:list) -> bool:
+def ordenados (s:list[int]) -> bool:
     for i in range(len(s)-1):
         if not s[i] < s[i+1]:
             return False
     return True
 
 # 1.5)
-def palabraLarga (s:list) -> bool:
+def palabraLarga (s:list[str]) -> bool:
     for i in s:
         if len(i) > 7:
             return True
@@ -108,7 +110,7 @@ def alMenosTresVocalesDistintas (palabra: str) -> bool:
 
 # Ejercicio 2
 # 2.1)
-def borraEnPares (lista:list) -> list:
+def borraEnPares (lista:list[int]) -> list[int]:
     for i in range(len(lista)):
         if i%2 == 0:
             lista[i] = 0
@@ -116,7 +118,7 @@ def borraEnPares (lista:list) -> list:
     return lista
 
 # 2.2)
-def borraEnPares2 (lista:list) -> list:
+def borraEnPares2 (lista:list[int]) -> list[int]:
     lista2: list = []
 
     for i in range(len(lista)):
@@ -151,3 +153,6 @@ def daVueltaStr (s:str) -> str:
     for i in s:
         s2 = i + s2
     return s2
+
+# Ejercicio 3
+# 3.1)
