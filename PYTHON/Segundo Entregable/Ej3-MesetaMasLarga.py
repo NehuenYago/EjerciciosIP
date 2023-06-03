@@ -1,5 +1,5 @@
 def mesetaMasLarga(l: list[int]) -> int:
-    mesetaMasLarga: int = 0
+    laMasLarga: int = 0
     largoDeMeseta: int = 1
 
     if len(l) == 0:
@@ -9,8 +9,8 @@ def mesetaMasLarga(l: list[int]) -> int:
         if l[i] == l[i+1]:
             largoDeMeseta += 1
         else:
-            mesetaMasLarga = max(mesetaMasLarga,largoDeMeseta)
+            laMasLarga = max(laMasLarga,largoDeMeseta)
             largoDeMeseta = 1
-    mesetaMasLarga = max(mesetaMasLarga,largoDeMeseta)
+    laMasLarga = max(laMasLarga,largoDeMeseta)
 
-    return mesetaMasLarga
+    return laMasLarga
