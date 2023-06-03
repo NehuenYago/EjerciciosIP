@@ -1,6 +1,4 @@
-from typing import List
-
-def filasParecidas(matriz: List[List[int]]) -> bool:
+def filasParecidas(matriz: list[list[int]]) -> bool:
     n:int = 0
 
     if len(matriz) == 1:
