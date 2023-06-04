@@ -163,3 +163,23 @@ def listaEstudiantes() -> list[str]:
         nombre = input('Ingresar nombre del estudiante: ')
 
     return print(listaNombres)
+
+# 3.2) Ademas agregue en el return el saldo con el que termina el usuario despues de las operaciones
+def monederoElectronico() -> list[str]:
+    saldo: int = 0
+    historial: list[tuple[str,str]] = []
+
+    accion: str = input('¿Que accion desea realizar?: ')
+
+    while accion != 'X':
+        monto: int = input('Indique el monto: ')
+        if accion == 'C':
+            saldo += int(monto)
+            historial.append(('C',monto))
+        elif accion == 'D':
+            saldo -= int(monto)
+            historial.append(('D',monto))
+        
+        accion = input('¿Que accion desea realizar?: ')
+
+    return print(historial, '\nSu saldo actual es de :', saldo)
