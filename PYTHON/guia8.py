@@ -1,5 +1,3 @@
-from stdlib import typing
-
 # Ejercicio 1
 # 1.1) Si se implementa con tipos genericos sirve esPara buscar un caracter en una string
 def pertenece (s:list[int], e:int) -> bool:
@@ -156,3 +154,12 @@ def daVueltaStr (s:str) -> str:
 
 # Ejercicio 3
 # 3.1)
+def listaEstudiantes() -> list[str]:
+    listaNombres: list[str] = []
+    nombre: str = input('Ingresar nombre del estudiante: ')
+
+    while nombre != 'listo':
+        listaNombres.append(nombre)
+        nombre = input('Ingresar nombre del estudiante: ')
+
+    return print(listaNombres)
