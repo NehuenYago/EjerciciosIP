@@ -226,3 +226,10 @@ def esMatriz(s:list[list[int]]) -> bool:
         if len(s[i]) != len(s[i-1]):
             return False
     return True
+
+# 4.3)
+def filasOrdenadas(m:list[list[int]]) -> bool:
+    for i in m:
+        if not ordenados(i):
+            return False
+    return True
