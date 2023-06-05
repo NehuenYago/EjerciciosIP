@@ -211,8 +211,18 @@ def sieteYMedio():
 
 # Ejercicio 4
 # 4.1)
-def perteneceACadaUno (s:list[list[int]], e:int) -> bool:
+def perteneceACadaUno(s:list[list[int]], e:int) -> bool:
     for i in s:
         if not (pertenece(i, e)):
+            return False
+    return True
+
+# 4.2)
+def esMatriz(s:list[list[int]]) -> bool:
+    if len(s) == 0 or len(s[0]) == 0:
+        return False
+    
+    for i in range(1,len(s)):
+        if len(s[i]) != len(s[i-1]):
             return False
     return True
