@@ -1,3 +1,5 @@
+import random
+
 # Ejercicio 1
 # 1.1) Si se implementa con tipos genericos sirve esPara buscar un caracter en una string
 def pertenece (s:list[int], e:int) -> bool:
@@ -162,17 +164,17 @@ def listaEstudiantes() -> list[str]:
         listaNombres.append(nombre)
         nombre = input('Ingresar nombre del estudiante: ')
 
-    return print(listaNombres)
+    return listaNombres
 
 # 3.2) Ademas agregue en el return el saldo con el que termina el usuario despues de las operaciones
-def monederoElectronico() -> list[str]:
+def monederoElectronico():
     saldo: int = 0
     historial: list[tuple[str,str]] = []
 
     accion: str = input('¿Que accion desea realizar?: ')
 
     while accion != 'X':
-        monto: int = input('Indique el monto: ')
+        monto: str = input('Indique el monto: ')
         if accion == 'C':
             saldo += int(monto)
             historial.append(('C',monto))
@@ -183,3 +185,26 @@ def monederoElectronico() -> list[str]:
         accion = input('¿Que accion desea realizar?: ')
 
     return print(historial, '\nSu saldo actual es de :', saldo)
+
+# 3.3)
+def sieteYMedio():
+    total: int = 0
+    seguirONo: str = 'y'
+    historialCartas: list[int] = []
+    
+    while seguirONo == 'y':
+        carta: int = random.choice([1,2,3,4,5,6,7,10,11,12])
+        historialCartas.append(carta)
+        print('Tu carta es: ', carta)
+        
+        if carta < 10:
+            total += carta
+        else:
+            total += .5
+
+        if total <= 7.5:
+            seguirONo = input('¿Pedis carta? (y/n): ')
+        else:
+            return print('Perdiste, tu total es de: ', total, '\nTus cartas fueron: ', historialCartas)
+
+    return print('Ganaste!, tu total es de: ', total, '\nTus cartas fueron: ', historialCartas)
