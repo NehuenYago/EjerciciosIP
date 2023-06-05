@@ -208,3 +208,11 @@ def sieteYMedio():
             return print('Perdiste, tu total es de: ', total, '\nTus cartas fueron: ', historialCartas)
 
     return print('Ganaste!, tu total es de: ', total, '\nTus cartas fueron: ', historialCartas)
+
+# Ejercicio 4
+# 4.1)
+def perteneceACadaUno (s:list[list[int]], e:int) -> bool:
+    for i in s:
+        if not (pertenece(i, e)):
+            return False
+    return True
