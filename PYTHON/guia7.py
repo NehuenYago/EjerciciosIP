@@ -146,7 +146,7 @@ def vacacionesOTrabajo(edad: int, sexo: str):
 
 # Ejercicio 6
 # 6.1)
-def numerosHastaDiez() -> int:
+def numerosHastaDiez():
     i = 1
     while i <= 10:
         print(i)
@@ -189,3 +189,9 @@ def viajeHastaAristoteles(partida: int):
         partida -= 20
         print("Viajo 20 años al pasado, estoy en el ", partida)
     print("Conoci a Aristoteles!")
+
+# Ejercicio 7
+# 7.1)
+def numerosHastaDiez2():
+    for n in range(1,11):
+        print(n)
