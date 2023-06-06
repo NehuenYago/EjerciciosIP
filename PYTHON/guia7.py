@@ -153,7 +153,7 @@ def numerosHastaDiez():
         i += 1
 
 # 6.2)
-def numeroParesDiezCuarenta():
+def numerosParesDiezCuarenta():
     i = 10
     while i <= 40:
         if esPar(i):
@@ -195,3 +195,11 @@ def viajeHastaAristoteles(partida: int):
 def numerosHastaDiez2():
     for n in range(1,11):
         print(n)
+
+# 7.2)
+def numerosParesDiezCuarenta2():
+    for n in range(10,41,2):
+        print(n)
+
+numerosParesDiezCuarenta2()
+numerosParesDiezCuarenta()
