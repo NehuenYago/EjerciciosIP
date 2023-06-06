@@ -217,3 +217,9 @@ def viajeAlPasado2(partida: int, llegada: int):
     for n in range(partida,llegada,-1):
         print("Viajo 20 años al pasado, estoy en el ", n)
     print("Llegue al año ", llegada)
+
+# 7.6)
+def viajeHastaAristoteles2(partida: int):
+    for n in range(partida,-394,-20):
+        print("Viajo 20 años al pasado, estoy en el ", n)
+    print("Conoci a Aristoteles!")
