@@ -1,4 +1,5 @@
 import random
+import numpy as np
 
 # Ejercicio 1
 # 1.1) Si se implementa con tipos genericos sirve esPara buscar un caracter en una string
@@ -233,3 +234,24 @@ def filasOrdenadas(m:list[list[int]]) -> bool:
         if not ordenados(i):
             return False
     return True
+
+# 4.4)
+def generaMatriz(d:int, f:float) -> list[list[int]]:
+    matriz:list[list[int]] = np.random.randint(0,10,(d,d))
+
+    return elevaMatriz(matriz, f)
+
+def elevaMatriz(matriz:list[list[int]], f:int) -> list[list[int]]:
+    matrizElevada: list[list[int]] = []
+
+    if f == 1:
+        return matriz
+
+    for i in range(len(matriz)):
+        matrizElevada.append([])
+        for j in range(len(matriz)):
+            matrizElevada[i].append(0)
+            for n in range(len(matriz)):
+                matrizElevada[i][j] += matriz[i][n] * elevaMatriz(matriz, f-1)[n][j]
+    
+    return matrizElevada
