@@ -11,7 +11,7 @@ def imprimirHola():
 
 # 1.3)
 def imprimirUnVerso():
-    print("Around the World, around the wooorld!\n")
+    print("Around the world, around the wooorld!\n")
 
 # 1.4)
 def factorial2() -> int:
@@ -223,3 +223,18 @@ def viajeHastaAristoteles2(partida: int):
     for n in range(partida,-394,-20):
         print("Viajo 20 años al pasado, estoy en el ", n)
     print("Conoci a Aristoteles!")
+
+# Ejercicio 8
+def transformacionEstados():
+    x, y = 5, 7
+    # estado a: x == 5, y == 7
+    z = x + y
+    # estado b: z == x@a + y@a
+    x = 'hora'
+    # estado c: x == 'hora'
+    x, y = True, False
+    res = x and y
+    # estado d: x == True, y == False, res == False
+    x = False
+    res = not x
+    # estado e: x == False, res == True
