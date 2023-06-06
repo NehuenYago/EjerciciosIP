@@ -205,3 +205,9 @@ def numerosParesDiezCuarenta2():
 def eco2():
     for n in range(10):
         print('eco')
+
+# 7.4)
+def cuentaRegresiva2(numero:int):
+    for n in range(numero,0,-1):
+        print(n)
+    print('Despegue!')
