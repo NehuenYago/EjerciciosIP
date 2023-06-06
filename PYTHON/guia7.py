@@ -211,3 +211,9 @@ def cuentaRegresiva2(numero:int):
     for n in range(numero,0,-1):
         print(n)
     print('Despegue!')
+
+# 7.5)
+def viajeAlPasado2(partida: int, llegada: int):
+    for n in range(partida,llegada,-1):
+        print("Viajo 20 años al pasado, estoy en el ", n)
+    print("Llegue al año ", llegada)
