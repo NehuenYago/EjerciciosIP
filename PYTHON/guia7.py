@@ -201,5 +201,7 @@ def numerosParesDiezCuarenta2():
     for n in range(10,41,2):
         print(n)
 
-numerosParesDiezCuarenta2()
-numerosParesDiezCuarenta()
+# 7.3)
+def eco2():
+    for n in range(10):
+        print('eco')
