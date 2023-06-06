@@ -225,7 +225,7 @@ def viajeHastaAristoteles2(partida: int):
     print("Conoci a Aristoteles!")
 
 # Ejercicio 8
-def transformacionEstados():
+def ejecucionSimbolica():
     x, y = 5, 7
     # estado a: x == 5, y == 7
     z = x + y
@@ -238,3 +238,33 @@ def transformacionEstados():
     x = False
     res = not x
     # estado e: x == False, res == True
+
+# Ejercicio 9
+# 9.1) 4
+# 9.2) 2
+
+# 9.3) 
+def rt(x: int, g: int) -> int:
+    # estado a
+    g = g + 1
+    # estado b: g == g@a + 1
+    return x + g # x@a + g@b
+
+g: int = 0
+def ro(x: int) -> int:
+    # estado a
+    global g
+    g = g + 1
+    # estado b: g == g@a + 1
+    return x + g # x@a + g@b
+
+# 9.4)
+# problema rt (inout x:Z, inout g:Z) {
+#   requiere: {True}
+#   asegura: {aumenta en una unidad a g y devuelve la suma entre x y g}
+# }
+
+# problema ro (inout x:Z) {
+#   requiere: {True}
+#   asegura: {aumenta en una unidad al valor actual de la variable global g y devuelve la suma entre x y g}
+# }
