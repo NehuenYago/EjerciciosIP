@@ -45,10 +45,7 @@ estribillo = "Around the world, around the wooorld!\n"
 
 # 2.4)
 def esMultiploDe(n: int, m: int) -> bool:
-    if n%m == 0:
-        return True
-    else:
-        return False
+    return n%m == 0
 
 # 2.5)
 def esPar(numero: int) -> bool:
