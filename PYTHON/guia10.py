@@ -45,11 +45,8 @@ def reversoLineas(filePath:str):
     for i in range(len(lineas)-1,-1,-1):
         nuevoArchivo.write(lineas[i])
 
-    return nuevoArchivo
-
 # Ejercicio 4
 def agregaFraseAlFinal(frase:str, filePath:str):
-    texto = open(filePath, "a")
-    texto.write('\n')
-    texto.write(frase)
-    return texto
+    archivo = open(filePath, "a")
+    archivo.write('\n')
+    archivo.write(frase)
