@@ -23,5 +23,11 @@ def cantidadApariciones(palabra:str, archivo:str) -> int:
     return apariciones
 
 # Ejercicio 2
-# def clonarSinComentarios(archivo:str):
+def clonarSinComentarios(archivo:str):
+    nuevoTexto = open("newFile.txt", "w")
+
+    for i in archivo.readlines():
+        if i.split() != [] and i.split()[0] != "#":
+                nuevoTexto.write(i)
     
+    return nuevoTexto
