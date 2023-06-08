@@ -31,10 +31,10 @@ def clonarSinComentarios(filePath:str):
     nuevoArchivo = open("newFile.txt", "w")
 
     for i in archivo.readlines():
-        if i.split() != [] and i.split()[0] != "#":
-                nuevoArchivo.write(i)
-    
-    return nuevoArchivo
+        if i.split() == []:
+            nuevoArchivo.write('\n')
+        elif i.split()[0] != "#":
+            nuevoArchivo.write(i)
 
 # Ejercicio 3 El archivo debe terminar con una newline
 def reversoLineas(filePath:str):
