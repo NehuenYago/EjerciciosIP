@@ -31,3 +31,13 @@ def clonarSinComentarios(archivo:str):
                 nuevoTexto.write(i)
     
     return nuevoTexto
+
+# Ejercicio 3 El archivo debe terminar con una newline
+def reversoLineas(archivo:str):
+    nuevoTexto = open("newFile.txt", "w")
+    lineas: [str] = archivo.readlines()
+
+    for i in range(len(lineas)-1,-1,-1):
+        nuevoTexto.write(lineas[i])
+
+    return nuevoTexto
