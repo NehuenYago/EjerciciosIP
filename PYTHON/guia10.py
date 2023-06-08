@@ -1,19 +1,22 @@
-f = open("/home/yago/Documents/repos/IP/PYTHON/input.txt","r")
+f = "/home/yago/Documents/repos/IP/PYTHON/input.txt"
 
 # Ejercicio 1
 # 1.1)
-def contarLineas(archivo:str) -> int:
+def contarLineas(filePath:str) -> int:
+    archivo = open(filePath, "r")
     l: int = 0
     for i in archivo.readlines():
         l += 1
     return l
 
 # 1.2)
-def existePalabra(palabra:str, archivo:str) -> bool:
+def existePalabra(palabra:str, filePath:str) -> bool:
+    archivo = open(filePath, "r")
     return palabra in archivo.read().split()
 
 # 1.3)
-def cantidadApariciones(palabra:str, archivo:str) -> int:
+def cantidadApariciones(palabra:str, filePath:str) -> int:
+    archivo = open(filePath, "r")
     texto = archivo.read()
     apariciones: int = 0
 
@@ -23,28 +26,30 @@ def cantidadApariciones(palabra:str, archivo:str) -> int:
     return apariciones
 
 # Ejercicio 2
-def clonarSinComentarios(archivo:str):
-    nuevoTexto = open("newFile.txt", "w")
+def clonarSinComentarios(filePath:str):
+    archivo = open(filePath, "r")
+    nuevoArchivo = open("newFile.txt", "w")
 
     for i in archivo.readlines():
         if i.split() != [] and i.split()[0] != "#":
-                nuevoTexto.write(i)
+                nuevoArchivo.write(i)
     
-    return nuevoTexto
+    return nuevoArchivo
 
 # Ejercicio 3 El archivo debe terminar con una newline
-def reversoLineas(archivo:str):
-    nuevoTexto = open("newFile.txt", "w")
+def reversoLineas(filePath:str):
+    archivo = open(filePath, "r")
+    nuevoArchivo = open("newFile.txt", "w")
     lineas: [str] = archivo.readlines()
 
     for i in range(len(lineas)-1,-1,-1):
-        nuevoTexto.write(lineas[i])
+        nuevoArchivo.write(lineas[i])
 
-    return nuevoTexto
+    return nuevoArchivo
 
 # Ejercicio 4
-def agregaFraseAlFinal(frase:str, archivo:str):
-    texto = open(archivo, "a")
+def agregaFraseAlFinal(frase:str, filePath:str):
+    texto = open(filePath, "a")
     texto.write('\n')
     texto.write(frase)
     return texto
