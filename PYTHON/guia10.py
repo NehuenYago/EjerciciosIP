@@ -50,3 +50,15 @@ def agregaFraseAlFinal(frase:str, filePath:str):
     archivo = open(filePath, "a")
     archivo.write('\n')
     archivo.write(frase)
+
+# Ejercicio 5
+def agregaFraseAlComienzo(frase:str, filePath:str):
+    archivo = open(filePath, "r")
+    lineas = archivo.readlines()
+
+    archivo = open(filePath, "w")
+    archivo.write(frase)
+    archivo.write('\n\n')
+
+    for l in lineas:
+        archivo.write(l)
