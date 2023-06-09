@@ -40,7 +40,7 @@ def clonarSinComentarios(filePath:str):
 def reversoLineas(filePath:str):
     archivo = open(filePath, "r")
     nuevoArchivo = open("newFile.txt", "w")
-    lineas: [str] = archivo.readlines()
+    lineas: list[str] = archivo.readlines()
 
     for i in range(len(lineas)-1,-1,-1):
         nuevoArchivo.write(lineas[i])
@@ -54,7 +54,7 @@ def agregaFraseAlFinal(frase:str, filePath:str):
 # Ejercicio 5
 def agregaFraseAlComienzo(frase:str, filePath:str):
     archivo = open(filePath, "r")
-    lineas = archivo.readlines()
+    lineas: list[str] = archivo.readlines()
 
     archivo = open(filePath, "w")
     archivo.write(frase)
@@ -62,3 +62,29 @@ def agregaFraseAlComienzo(frase:str, filePath:str):
 
     for l in lineas:
         archivo.write(l)
+
+# Ejercicio 6
+# def devuelveListaPalabras(filePath:str):
+#     archivo = open(filePath, "rb")
+
+# Ejercicio 7
+def promedioEstudiante(lu:str, filePath:str) -> float:
+    archivo = open(filePath, "r")
+    lineas = archivo.readlines()
+    libreta: int = 0
+    nota: int = 0
+    notas: int = 0
+    cantidadMaterias: int = 0
+
+    for i in range(len(lineas)):
+        sinNewline = lineas[i].strip('\n')
+        libreta = int(sinNewline.split(',')[0])
+        nota = int(sinNewline.split(',')[3])
+
+        if libreta == int(lu):
+            notas += nota
+            cantidadMaterias += 1
+    
+    return notas / cantidadMaterias
+
+# print(promedioEstudiante('656',f))
