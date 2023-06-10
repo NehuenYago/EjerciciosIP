@@ -71,10 +71,7 @@ def agregaFraseAlComienzo(frase:str, filePath:str):
 def promedioEstudiante(lu:str, filePath:str) -> float:
     archivo = open(filePath, "r")
     lineas = archivo.readlines()
-    libreta: int = 0
-    nota: int = 0
-    notas: int = 0
-    cantidadMaterias: int = 0
+    libreta, nota, totalNotas, cantidadMaterias, promedio = 0,0,0,0,0
 
     for i in range(len(lineas)):
         sinNewline = lineas[i].strip('\n')
@@ -82,9 +79,10 @@ def promedioEstudiante(lu:str, filePath:str) -> float:
         nota = int(sinNewline.split(',')[3])
 
         if libreta == int(lu):
-            notas += nota
+            totalNotas += nota
             cantidadMaterias += 1
     
-    return notas / cantidadMaterias
+    if cantidadMaterias > 0:
+        promedio = totalNotas / cantidadMaterias
 
-# print(promedioEstudiante('656',f))
+    return promedio
