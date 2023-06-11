@@ -113,3 +113,15 @@ def buscarElMaximo(pila: Pila) -> int:
         maximoNumero = max(maximoNumero, pila.get())
     
     return maximoNumero
+
+# Ejercicio 12
+def estaBienBalanceada(s:str) -> bool:
+    pila: Pila = Pila()
+    
+    for i in range(len(s)):
+        if s[i] == '(':
+            pila.put(s[i])
+        elif s[i] == ')':
+            pila.get()
+
+    return pila.empty()
