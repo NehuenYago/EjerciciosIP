@@ -105,3 +105,11 @@ def armaPila(n:int, desde:int, hasta:int) -> Pila:
 # Ejercicio 10
 def cantidadElementos(p: Pila) -> int:
     return p.qsize()
+
+# Ejercicio 11
+def buscarElMaximo(pila: Pila) -> int:
+    maximoNumero: int = 0
+    while not pila.empty():
+        maximoNumero = max(maximoNumero, pila.get())
+    
+    return maximoNumero
