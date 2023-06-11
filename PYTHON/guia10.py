@@ -92,7 +92,7 @@ def promedioEstudiante(lu:str, filePath:str) -> float:
 def generarNumerosAlAzar(n:int, desde:int, hasta:int) -> list[int]:
     return random.sample(range(desde, hasta), n)
 
-# Ejercicio 9
+# Ejercicio 9 Para print pila hacer .queue
 def armaPila(n:int, desde:int, hasta:int) -> Pila:
     pila: Pila = Pila()
     lista:list[int] = generarNumerosAlAzar(n, desde, hasta)
@@ -100,4 +100,8 @@ def armaPila(n:int, desde:int, hasta:int) -> Pila:
     for l in lista:
         pila.put(l)
         
-    return pila.queue
+    return pila
+
+# Ejercicio 10
+def cantidadElementos(p: Pila) -> int:
+    return p.qsize()
