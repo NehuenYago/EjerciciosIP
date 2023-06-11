@@ -122,6 +122,8 @@ def estaBienBalanceada(s:str) -> bool:
         if s[i] == '(':
             pila.put(s[i])
         elif s[i] == ')':
+            if pila.empty():
+                return False
             pila.get()
 
     return pila.empty()
