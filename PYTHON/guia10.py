@@ -1,4 +1,5 @@
 import random
+from queue import LifoQueue as Pila
 
 # Ejercicio 1
 # 1.1)
@@ -88,5 +89,15 @@ def promedioEstudiante(lu:str, filePath:str) -> float:
     return promedio
 
 # Ejercicio 8
-def generarNrosAlAzar(n:int, desde:int, hasta:int) -> list[int]:
+def generarNumerosAlAzar(n:int, desde:int, hasta:int) -> list[int]:
     return random.sample(range(desde, hasta), n)
+
+# Ejercicio 9
+def armaPila(n:int, desde:int, hasta:int) -> Pila:
+    pila: Pila = Pila()
+    lista:list[int] = generarNumerosAlAzar(n, desde, hasta)
+
+    for l in lista:
+        pila.put(l)
+        
+    return pila.queue
