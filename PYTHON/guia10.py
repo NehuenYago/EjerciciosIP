@@ -1,4 +1,4 @@
-f = "/home/yago/Documents/repos/IP/PYTHON/input.txt"
+import random
 
 # Ejercicio 1
 # 1.1)
@@ -86,3 +86,7 @@ def promedioEstudiante(lu:str, filePath:str) -> float:
         promedio = totalNotas / cantidadMaterias
 
     return promedio
+
+# Ejercicio 8
+def generarNrosAlAzar(n:int, desde:int, hasta:int) -> list[int]:
+    return random.sample(range(desde, hasta), n)
