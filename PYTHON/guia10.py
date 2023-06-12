@@ -187,3 +187,15 @@ def nPacientesUrgentes(c: Queue[(int,str,str)]) -> int:
 
 # Ejercicio 18
 def agruparPorLongitud(filePath: str) -> dict:
+    signos: str = '.,!?'
+    archivo = open(filePath, "r").read().strip(signos)
+    palabras = archivo.split()
+    diccionario = {}
+
+    for palabra in palabras:
+        if len(palabra) in diccionario:
+            diccionario[len(palabra)] += 1
+        else:
+            diccionario[len(palabra)] = 1
+                
+    return diccionario
