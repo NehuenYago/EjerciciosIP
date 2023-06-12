@@ -142,3 +142,11 @@ def armaCola(n:int, desde:int, hasta:int) -> Queue:
 # Ejercicio 14
 def cantidadElementosQueue(c: Queue) -> int:
     return c.qsize()
+
+# Ejercicio 15
+def buscarElMaximoQ(c: Queue) -> int:
+    maximoNumero: int = 0
+    while not c.empty():
+        maximoNumero = max(c.get(), maximoNumero)
+    
+    return maximoNumero
