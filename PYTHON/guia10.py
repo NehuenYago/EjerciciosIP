@@ -138,3 +138,7 @@ def armaCola(n:int, desde:int, hasta:int) -> Queue:
         cola.put(i)
     
     return cola
+
+# Ejercicio 14
+def cantidadElementosQueue(c: Queue) -> int:
+    return c.qsize()
