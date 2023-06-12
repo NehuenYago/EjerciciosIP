@@ -1,5 +1,5 @@
 import random
-from queue import LifoQueue as Pila
+from queue import LifoQueue as LifoQ
 from queue import Queue as Queue
 
 # Ejercicio 1
@@ -94,8 +94,8 @@ def generarNumerosAlAzar(n:int, desde:int, hasta:int) -> list[int]:
     return random.sample(range(desde, hasta), n)
 
 # Ejercicio 9 Para print pila hacer .queue
-def armaPila(n:int, desde:int, hasta:int) -> Pila:
-    pila: Pila = Pila()
+def armaPila(n:int, desde:int, hasta:int) -> LifoQ:
+    pila: LifoQ = LifoQ()
     lista:list[int] = generarNumerosAlAzar(n, desde, hasta)
 
     for l in lista:
@@ -104,11 +104,11 @@ def armaPila(n:int, desde:int, hasta:int) -> Pila:
     return pila
 
 # Ejercicio 10
-def cantidadElementos(p: Pila) -> int:
+def cantidadElementos(p: LifoQ) -> int:
     return p.qsize()
 
 # Ejercicio 11
-def buscarElMaximo(pila: Pila) -> int:
+def buscarElMaximo(pila: LifoQ) -> int:
     maximoNumero: int = 0
     while not pila.empty():
         maximoNumero = max(maximoNumero, pila.get())
@@ -117,7 +117,7 @@ def buscarElMaximo(pila: Pila) -> int:
 
 # Ejercicio 12
 def estaBienBalanceada(s:str) -> bool:
-    pila: Pila = Pila()
+    pila: LifoQ = LifoQ()
     
     for i in range(len(s)):
         if s[i] == '(':
@@ -177,10 +177,13 @@ def jugarCartonDeBingo(carton:list[int], bolillero:Queue[int]) -> int:
 # Ejercicio 17
 def nPacientesUrgentes(c: Queue[(int,str,str)]) -> int:
     pacientesUrgentes: int = 0
-    
+
     while not c.empty():
         paciente: tuple[int,str,str] = c.get()
         if paciente[0] <= 3:
             pacientesUrgentes += 1
     
     return pacientesUrgentes
+
+# Ejercicio 18
+def agruparPorLongitud(filePath: str) -> dict:
