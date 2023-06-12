@@ -72,13 +72,13 @@ def agregaFraseAlComienzo(frase:str, filePath:str):
 # Ejercicio 7
 def promedioEstudiante(lu:str, filePath:str) -> float:
     archivo = open(filePath, "r")
-    lineas = archivo.readlines()
+    lineas = archivo.read().split()
     libreta, nota, totalNotas, cantidadMaterias, promedio = 0,0,0,0,0
 
-    for i in range(len(lineas)):
-        sinNewline = lineas[i].strip('\n')
-        libreta = int(sinNewline.split(',')[0])
-        nota = int(sinNewline.split(',')[3])
+    for i in lineas:
+        i = i.split(',')
+        libreta = int(i[0])
+        nota = int(i[2])
 
         if libreta == int(lu):
             totalNotas += nota
@@ -189,7 +189,7 @@ def nPacientesUrgentes(c: Queue[(int,str,str)]) -> int:
 def agruparPorLongitud(filePath: str) -> dict:
     signos: str = '.,!?'
     archivo = open(filePath, "r").read().strip(signos)
-    palabras = archivo.split()
+    palabras: list[str] = archivo.split()
     diccionario = {}
 
     for palabra in palabras:
@@ -198,4 +198,18 @@ def agruparPorLongitud(filePath: str) -> dict:
         else:
             diccionario[len(palabra)] = 1
                 
+    return diccionario
+
+# Ejercicio 19
+def promedioEstudiantes(filePath:str) -> dict:
+    archivo = open(filePath, "r")
+    lineas = archivo.read().split('\n')
+    diccionario:dict = {}
+    notas: int = 0
+    
+    for i in lineas:
+        i = i.split(',')
+        if not i[0] in diccionario:
+            diccionario[i[0]] = promedioEstudiante(i[0], filePath)
+        
     return diccionario
