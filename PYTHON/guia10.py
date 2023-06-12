@@ -1,5 +1,6 @@
 import random
 from queue import LifoQueue as Pila
+from queue import Queue as Queue
 
 # Ejercicio 1
 # 1.1)
@@ -127,3 +128,13 @@ def estaBienBalanceada(s:str) -> bool:
             pila.get()
 
     return pila.empty()
+
+# Ejercicio 13 Para print, hacerlo con list(cola.queue)
+def armaCola(n:int, desde:int, hasta:int) -> Queue:
+    cola: Queue = Queue()
+    lista: list[int] = generarNumerosAlAzar(n, desde, hasta)
+
+    for i in lista:
+        cola.put(i)
+    
+    return cola
