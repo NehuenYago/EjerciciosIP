@@ -150,3 +150,26 @@ def buscarElMaximoQ(c: Queue) -> int:
         maximoNumero = max(c.get(), maximoNumero)
     
     return maximoNumero
+
+# Ejercicio 16
+def armarSecuenciaDeBingo() -> Queue[int]:
+    c: Queue = Queue()
+    numeros:list[int] = generarNumerosAlAzar(100, 0, 100)
+    
+    for n in numeros:
+        c.put(n)
+    
+    return c
+
+def jugarCartonDeBingo(carton:list[int], bolillero:Queue[int]) -> int:
+    cantidadJugadas: int = 0
+    numeroCarton = len(carton)
+
+    while not bolillero.empty():
+        bolilla: int = bolillero.get()
+        cantidadJugadas += 1
+
+        if bolilla in carton:
+            numeroCarton -= 1
+        if numeroCarton == 0:
+            return cantidadJugadas
