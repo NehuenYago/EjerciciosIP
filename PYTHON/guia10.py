@@ -173,3 +173,14 @@ def jugarCartonDeBingo(carton:list[int], bolillero:Queue[int]) -> int:
             numeroCarton -= 1
         if numeroCarton == 0:
             return cantidadJugadas
+
+# Ejercicio 17
+def nPacientesUrgentes(c: Queue[(int,str,str)]) -> int:
+    pacientesUrgentes: int = 0
+    
+    while not c.empty():
+        paciente: tuple[int,str,str] = c.get()
+        if paciente[0] <= 3:
+            pacientesUrgentes += 1
+    
+    return pacientesUrgentes
