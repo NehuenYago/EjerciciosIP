@@ -190,6 +190,7 @@ def agruparPorLongitud(filePath: str) -> dict:
     signos: str = '.,!?'
     archivo = open(filePath, "r").read().strip(signos)
     palabras: list[str] = archivo.split()
+    print(palabras)
     diccionario = {}
 
     for palabra in palabras:
@@ -213,3 +214,18 @@ def promedioEstudiantes(filePath:str) -> dict:
             diccionario[i[0]] = promedioEstudiante(i[0], filePath)
         
     return diccionario
+
+# Ejercicio 20
+def laPalabraMasFracuente(filePath:str) -> str:
+    signos: str = '.,!?'
+    archivo = open(filePath, "r").read().strip(signos)
+    palabras: list[str] = archivo.split()
+    diccionario:dict = {}
+
+    for palabra in palabras:
+        if not palabra in diccionario:
+            diccionario[palabra] = 1
+        else:
+            diccionario[palabra] += 1
+
+    return max(diccionario, key=diccionario.get, default=None)
