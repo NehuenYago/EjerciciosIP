@@ -217,3 +217,12 @@ nat2bin n = nat2bin (div n 2) ++ [mod n 2]
 bin2nat :: [Integer] -> Integer
 bin2nat [] = 0
 bin2nat (x:xs) = x * (2 ^ (longitud(x:xs)-1)) + bin2nat xs
+
+-- 5.3)
+nat2hex :: Int -> [Char]
+nat2hex n
+ | n < 16 = [nat2digito n]
+ | otherwise = nat2hex (div n 16) ++ [nat2digito (mod n 16)]
+
+nat2digito :: Int -> Char
+nat2digito x = "0123456789ABCDEF" !! x
