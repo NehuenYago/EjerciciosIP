@@ -180,9 +180,35 @@ contarPalabrasAux (c1:c2:cs)
  | c1 /= ' ' && c2 == ' ' = contarPalabrasAux (c2:cs)
  | c1 == ' ' && c2 /= ' ' = 1 + contarPalabrasAux (c2:cs)
 
+sacarRepetidos :: [Char] -> [Char]
 sacarRepetidos [c1] = [c1]
 sacarRepetidos [] = []
 sacarRepetidos (c1:c2:cs)
  | c1 == ' ' && c1 == c2 = sacarRepetidos (c2:cs)
  | c1 /= ' ' && c2 /= ' ' = sacarRepetidos (c2:cs)
  | otherwise = c1 : sacarRepetidos (c2:cs)
+
+-- 4.3)
+-- palabraMasLarga :: [Char] -> [Char]
+
+-- buscaLetra :: [Char] 
+-- buscaLetra (x:xs)
+--  | x == ' ' = buscaLetra xs
+--  | otherwise = concatenaPalabra (x:xs) : buscaEspacio xs
+
+-- buscaEspacio (x:xs)
+--  | x /= ' ' = buscaEspacio xs
+--  | otherwise = 
+
+-- concatenaPalabra :: [Char] -> []
+-- concatenaPalabra [x] = [x]
+-- concatenaPalabra (x:xs)
+--  | x /= ' ' = x: concatenaPalabra xs
+--  | x == ' ' = [] 
+
+-- Ejercicio 5
+-- 5.1)
+nat2bin :: Integer -> [Integer]
+nat2bin 0 = [0]
+nat2bin 1 = [1]
+nat2bin n = nat2bin (div n 2) ++ [mod n 2]
