@@ -212,3 +212,8 @@ nat2bin :: Integer -> [Integer]
 nat2bin 0 = [0]
 nat2bin 1 = [1]
 nat2bin n = nat2bin (div n 2) ++ [mod n 2]
+
+-- 5.2)
+bin2nat :: [Integer] -> Integer
+bin2nat [] = 0
+bin2nat (x:xs) = x * (2 ^ (longitud(x:xs)-1)) + bin2nat xs
