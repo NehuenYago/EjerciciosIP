@@ -226,3 +226,8 @@ nat2hex n
 
 nat2digito :: Int -> Char
 nat2digito x = "0123456789ABCDEF" !! x
+
+-- 5.4)
+sumaAcumulada :: (Num t) => [t] -> [t]
+sumaAcumulada [x] = [x]
+sumaAcumulada (x:xs) = x : sumaAcumulada ((x + head xs): tail xs)
