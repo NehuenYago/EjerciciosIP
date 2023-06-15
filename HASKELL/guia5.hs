@@ -231,3 +231,16 @@ nat2digito x = "0123456789ABCDEF" !! x
 sumaAcumulada :: (Num t) => [t] -> [t]
 sumaAcumulada [x] = [x]
 sumaAcumulada (x:xs) = x : sumaAcumulada ((x + head xs): tail xs)
+
+-- 5.5
+descomponerEnPrimos :: [Integer] -> [[Integer]]
+descomponerEnPrimos [] = []
+descomponerEnPrimos (x:xs) = factorizar x 2 : descomponerEnPrimos xs
+
+factorizar :: Integer -> Integer -> [Integer]
+factorizar 0 _ = []
+factorizar 1 _ = []
+factorizar x i
+ | mod x i == 0 = i : factorizar (div x i) i
+ | otherwise = factorizar x (i+1)
+ 
