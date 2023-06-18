@@ -1,13 +1,12 @@
-from typing import List
-from typing import Dict
+def unirDiccionarios(aUnir: list[dict[str,str]]) -> dict[str,list[str]]:
+    diccionarioNuevo: dict() = {}
 
-def unir_diccionarios(a_unir: List[Dict[str,str]]) -> Dict[str,List[str]]:
-    diccionarioNuevo: Dict() = {}
-
-    for i in a_unir:
+    for i in aUnir:
         items = i.items()
-        print(items)
-
-
-test = [{'a':'1', 'b':'2'},{'b':'3', 'c':'4'},{'a':'5'}]
-unir_diccionarios(test)
+        for tupla in items:
+            if tupla[0] in diccionarioNuevo:
+                diccionarioNuevo[tupla[0]] += [tupla[1]]
+            else:
+                diccionarioNuevo[tupla[0]] = [tupla[1]]
+            
+    return diccionarioNuevo
