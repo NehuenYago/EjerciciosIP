@@ -9,26 +9,37 @@ def procesamiento_pedidos(pedidos: Queue,
                           stock_productos: Dict[str, int],
                           precios_productos: Dict[str, float]) -> List[Dict[str, Union[int, str, float, Dict[str, int]]]]:
     
-    pedidos_procesados:List[Dict[str, Union[int, str, float, Dict[str, int]]]] = []
-    pedido_procesado: Dict[str, Union[int, str, float, Dict[str, int]]] = {}
+    lista_pedidos_procesados:List[Dict[str, Union[int, str, float, Dict[str, int]]]] = []
 
     for i in range(len(pedidos)):
+        pedido_procesado: Dict[str, Union[int, str, float, Dict[str, int]]] = {}
         productos: Dict[str,int] = pedidos[i].get('productos')
+        productos_recibidos: Dict[str,int] = {}
         precio_total:int = 0
         estado:str = 'completo'
+
         for producto in productos:
+            cantidad_recibida: int = 0
             while stock_productos.get(producto) > 0 and productos.get(producto) > 0:
                 precio_total += precios_productos.get(producto)
                 stock_productos[producto] -= 1
                 productos[producto] -= 1
+                cantidad_recibida += 1
                                 
+            productos_recibidos[producto] = cantidad_recibida
+
             if productos.get(producto) > 0:
                 estado = 'incompleto'
-            
-        # pedido_procesado = []
-        pedidos_procesados += [pedido_procesado]
+        
+        pedido_procesado['id'] = pedidos[i].get("id")
+        pedido_procesado['cliente'] = pedidos[i].get("cliente")
+        pedido_procesado['productos'] = productos_recibidos
+        pedido_procesado['precio_total'] = precio_total
+        pedido_procesado['estado'] = estado
 
-    return pedidos_procesados
+        lista_pedidos_procesados += [pedido_procesado]
+
+    return lista_pedidos_procesados
 
 
 pedidos = [{"id":21,"cliente":"Gabriela", "productos":{"Manzana":2}}, {"id":1,"cliente":"Juan","productos":{"Manzana":2,"Pan":4,"Factura":6}}]
