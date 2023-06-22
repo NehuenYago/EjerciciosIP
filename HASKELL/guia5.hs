@@ -232,7 +232,7 @@ sumaAcumulada :: (Num t) => [t] -> [t]
 sumaAcumulada [x] = [x]
 sumaAcumulada (x:xs) = x : sumaAcumulada ((x + head xs): tail xs)
 
--- 5.5
+-- 5.5)
 descomponerEnPrimos :: [Integer] -> [[Integer]]
 descomponerEnPrimos [] = []
 descomponerEnPrimos (x:xs) = factorizar x 2 : descomponerEnPrimos xs
@@ -243,4 +243,15 @@ factorizar 1 _ = []
 factorizar x i
  | mod x i == 0 = i : factorizar (div x i) i
  | otherwise = factorizar x (i+1)
- 
+
+-- Ejercicio 6
+-- 6.1)
+-- Defino el tipo Set (conjunto). Set no debe tener elementos repetidos y el 
+-- orden de sus elementos no importa
+type Set a = [a]
+
+agregarATodos :: Integer -> Set (Set Integer) -> Set (Set Integer)
+agregarATodos n [] = []
+agregarATodos n (x:xs)
+ | pertenece n x = x : agregarATodos n xs
+ | otherwise = (n : x) : agregarATodos n xs
