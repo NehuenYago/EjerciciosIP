@@ -1,13 +1,13 @@
 from queue import LifoQueue
 
-def calcular_expresion(expr: str) -> float:
+def calcularExpresion(expresion: str) -> float:
     pila: LifoQueue = LifoQueue()
     x: float = 0
     y: float = 0
     cuenta: float = 0
-    expr = expr.split()
+    expresion = expresion.split()
     
-    for i in expr:
+    for i in expresion:
         if i != '+' and i != '-' and i != '*' and i != '/':
             pila.put(i)
         else:
@@ -21,13 +21,12 @@ def calcular_expresion(expr: str) -> float:
     
     return cuenta
 
-
 def haceOperacion(signo: str, x:float, y:float) -> float:
     if signo == '+':
-        return x + y
+        return y + x
     elif signo == '-':
         return y - x
     elif signo == '*':
-        return x * y
+        return y * y
     elif signo == '/':
         return y / x
