@@ -5,43 +5,27 @@ def avanzarFila(fila: Queue, min: int):
     cantidadInicial = fila.qsize()
     minutos: int = 0
 
-    minutoAtiendeCaja1 = 1
-    minutoAtiendeCaja2 = 3
-    minutoAtiendeCaja3 = 2
-    minutoVuelveFilaCliente = 5
+    minutoVuelveFilaCliente:int = -1
     clienteDeCaja3 = 0
 
     while minutos <= min:
-        if minutoVuelveFilaCliente == minutos:
-            fila.put(clienteDeCaja3)
-            minutoVuelveFilaCliente += 3
             
         if minutos % 4 == 0:
             fila.put(cantidadInicial + 1)
-            cantidadInicial += 1           
+            cantidadInicial += 1
 
-        if minutos == minutoAtiendeCaja1:
-            if fila.empty():
-                minutoAtiendeCaja1 += 1
-            else:
-                fila.get()
-                minutoAtiendeCaja1 += 10
+        if minutoVuelveFilaCliente == minutos:
+            fila.put(clienteDeCaja3)
 
-        if minutos == minutoAtiendeCaja2:
-            if fila.empty():
-                minutoAtiendeCaja2 += 1
-            else:
-                fila.get()
-                minutoAtiendeCaja2 += 4
+        if minutos % 10 == 1 and not fila.empty():
+            fila.get()
 
-        if minutos == minutoAtiendeCaja3:
-            if fila.empty():
-                minutoAtiendeCaja3 += 1
-                minutoVuelveFilaCliente += 1
-            else:
-                clienteDeCaja3 = fila.get()
-                minutoAtiendeCaja3 += 4
+        if minutos % 4 == 3 and not fila.empty():
+            fila.get()
 
+        if minutos % 4 == 2 and not fila.empty():
+            clienteDeCaja3 = fila.get()
+            minutoVuelveFilaCliente = minutos + 3
 
         minutos += 1
 
@@ -54,7 +38,7 @@ def cola(p):
         cola.put(i)
     return cola
 
-print(list(avanzarFila(cola([1,2,3]), 14).queue))
+print(list(avanzarFila(cola([1,2,3]), 100).queue))
 
 # Caja1: Empieza a atender 10:01, y atiende a una persona cada 10 minutos
 # Caja2: Empieza a atender 10:03, atiende a una persona cada 4 minutos
