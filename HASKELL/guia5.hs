@@ -255,3 +255,12 @@ agregarATodos n [] = []
 agregarATodos n (x:xs)
  | pertenece n x = x : agregarATodos n xs
  | otherwise = (n : x) : agregarATodos n xs
+
+-- 6.2)
+partes :: Integer -> Set (Set Integer)
+partes 0 = [[]]
+partes n = partes (n-1) ++ armaSubconjuntos n (partes (n-1))
+
+armaSubconjuntos :: Integer -> Set (Set Integer) -> Set (Set Integer)
+armaSubconjuntos n [x] = [x ++ [n]]
+armaSubconjuntos n (x:xs) = [x ++ [n]] ++ armaSubconjuntos n xs
