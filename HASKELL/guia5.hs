@@ -245,11 +245,11 @@ factorizar x i
  | otherwise = factorizar x (i+1)
 
 -- Ejercicio 6
--- 6.1)
 -- Defino el tipo Set (conjunto). Set no debe tener elementos repetidos y el 
 -- orden de sus elementos no importa
 type Set a = [a]
 
+-- 6.1)
 agregarATodos :: Integer -> Set (Set Integer) -> Set (Set Integer)
 agregarATodos n [] = []
 agregarATodos n (x:xs)
@@ -264,3 +264,12 @@ partes n = partes (n-1) ++ armaSubconjuntos n (partes (n-1))
 armaSubconjuntos :: Integer -> Set (Set Integer) -> Set (Set Integer)
 armaSubconjuntos n [x] = [x ++ [n]]
 armaSubconjuntos n (x:xs) = [x ++ [n]] ++ armaSubconjuntos n xs
+
+-- 6.3)
+productoCartesiano :: Set Integer -> Set Integer -> Set (Integer, Integer)
+productoCartesiano x [y] = armaCoordenadas x y
+productoCartesiano x (y:ys) = armaCoordenadas x y ++ productoCartesiano x ys
+
+armaCoordenadas :: Set Integer -> Integer -> Set (Integer, Integer)
+armaCoordenadas [x] y = [(x,y)]
+armaCoordenadas (x:xs) y = [(x,y)] ++ armaCoordenadas xs y
