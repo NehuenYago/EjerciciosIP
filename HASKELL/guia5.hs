@@ -206,6 +206,13 @@ sacarRepetidos (c1:c2:cs)
 --  | x /= ' ' = x: concatenaPalabra xs
 --  | x == ' ' = [] 
 
+-- 4.4)
+
+-- 4.5)
+aplanar :: [[Char]] -> [Char]
+aplanar [] = []
+aplanar (x:xs) = x ++ aplanar xs 
+
 -- Ejercicio 5
 -- 5.1)
 nat2bin :: Integer -> [Integer]
