@@ -191,22 +191,25 @@ sacarRepetidos (c1:c2:cs)
 -- 4.3)
 -- palabraMasLarga :: [Char] -> [Char]
 
--- buscaLetra :: [Char] 
--- buscaLetra (x:xs)
---  | x == ' ' = buscaLetra xs
---  | otherwise = concatenaPalabra (x:xs) : buscaEspacio xs
-
--- buscaEspacio (x:xs)
---  | x /= ' ' = buscaEspacio xs
---  | otherwise = 
-
--- concatenaPalabra :: [Char] -> []
--- concatenaPalabra [x] = [x]
--- concatenaPalabra (x:xs)
---  | x /= ' ' = x: concatenaPalabra xs
---  | x == ' ' = [] 
 
 -- 4.4)
+palabras :: [Char] -> [[Char]]
+palabras [] = []
+palabras (x:xs)
+ | x /= ' ' = palabra (x:xs) : palabras (siguientePalabra xs)
+ | x == ' ' = palabras xs
+
+palabra :: [Char] -> [Char]
+palabra [] = []
+palabra (x:xs) 
+ | x /= ' ' = x : palabra xs
+ | x == ' ' = []
+
+siguientePalabra :: [Char] -> [Char]
+siguientePalabra [] = []
+siguientePalabra (x:xs)
+ | x /= ' ' = siguientePalabra xs
+ | x == ' ' = (x:xs)
 
 -- 4.5)
 aplanar :: [[Char]] -> [Char]
