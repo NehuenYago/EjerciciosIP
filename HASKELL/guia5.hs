@@ -218,6 +218,15 @@ aplanarConBlancos :: [[Char]] -> [Char]
 aplanarConBlancos [x] = x
 aplanarConBlancos (x:xs) = x ++ " " ++ aplanarConBlancos xs
 
+-- 4.7)
+aplanarConNBlancos :: [[Char]] -> Integer -> [Char]
+aplanarConNBlancos [x] _ = x
+aplanarConNBlancos (x:xs) n = x ++ sumaBlancos n ++ aplanarConNBlancos xs n
+
+sumaBlancos :: Integer -> [Char]
+sumaBlancos 0 = []
+sumaBlancos n = " " ++ sumaBlancos (n-1)
+
 -- Ejercicio 5
 -- 5.1)
 nat2bin :: Integer -> [Integer]
