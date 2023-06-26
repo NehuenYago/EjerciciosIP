@@ -189,8 +189,23 @@ sacarRepetidos (c1:c2:cs)
  | otherwise = c1 : sacarRepetidos (c2:cs)
 
 -- 4.3)
--- palabraMasLarga :: [Char] -> [Char]
+palabraMasLarga :: [Char] -> [Char]
+palabraMasLarga [] = []
+palabraMasLarga x = palabraMasLargaAux (armaTupla (palabras x))
 
+palabraMasLargaAux :: [([Char],Integer)] -> [Char]
+palabraMasLargaAux [x] = fst x
+palabraMasLargaAux (x1:x2:xs) 
+ | snd x1 >= snd x2 = palabraMasLargaAux (x1:xs) 
+ | otherwise = palabraMasLargaAux (x2:xs)
+
+armaTupla :: [[Char]] -> [([Char],Integer)]
+armaTupla [] = []
+armaTupla (x:xs) = [(x, cuentaLetras x)] ++ armaTupla xs
+
+cuentaLetras :: [Char] -> Integer
+cuentaLetras [] = 0
+cuentaLetras (x:xs) = 1 + cuentaLetras xs
 
 -- 4.4)
 palabras :: [Char] -> [[Char]]
