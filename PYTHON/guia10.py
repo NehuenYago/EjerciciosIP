@@ -234,10 +234,13 @@ def promedioEstudiantes(filePath:str) -> dict:
 
 # Ejercicio 20
 def laPalabraMasFracuente(filePath:str) -> str:
-    signos: str = '.,!?'
-    archivo = open(filePath, "r").read().strip(signos)
-    palabras: list[str] = archivo.split()
+    archivo = open(filePath, "r").read()
     diccionario:dict = {}
+
+    for signo in ['.',',','!','?']:
+        archivo = archivo.replace(signo,"")
+    
+    palabras: list[str] = archivo.split()
 
     for palabra in palabras:
         if not palabra in diccionario:
