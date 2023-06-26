@@ -213,6 +213,11 @@ aplanar :: [[Char]] -> [Char]
 aplanar [] = []
 aplanar (x:xs) = x ++ aplanar xs 
 
+-- 4.6)
+aplanarConBlancos :: [[Char]] -> [Char]
+aplanarConBlancos [x] = x
+aplanarConBlancos (x:xs) = x ++ " " ++ aplanarConBlancos xs
+
 -- Ejercicio 5
 -- 5.1)
 nat2bin :: Integer -> [Integer]
