@@ -1,6 +1,6 @@
 import random
 from queue import LifoQueue as LifoQ
-from queue import Queue as Queue
+from queue import Queue
 
 # Ejercicio 1
 # 1.1)
@@ -66,8 +66,25 @@ def agregaFraseAlComienzo(frase:str, filePath:str):
         archivo.write(l)
 
 # Ejercicio 6
-# def devuelveListaPalabras(filePath:str):
-#     archivo = open(filePath, "rb")
+def devuelveListaPalabras(filePath:str):
+    archivo = open(filePath, "rb").read()
+    texto: list[str] = archivo.decode("utf-8", errors="ignore").split()
+    textoLegible: list[str] = []
+    
+    for palabra in texto:
+        esLegible: bool = True
+
+        if len(palabra) < 5:
+            esLegible = False
+        
+        for c in palabra:
+            if not 'a'<=c<='z' and not 'A'<=c<='Z' and not (c.isdigit()) and not (c == '_'):
+                esLegible = False
+        
+        if esLegible:
+            textoLegible.append(palabra)
+
+    return textoLegible
 
 # Ejercicio 7
 def promedioEstudiante(lu:str, filePath:str) -> float:
